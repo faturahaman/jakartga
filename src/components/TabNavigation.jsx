@@ -36,10 +36,10 @@ const TabNavigation = ({ isMobileMenuOpen }) => {
   const renderInfoColumn = () => {
     if (!activeLevel1) {
       const defaultInfo = {
-        title: "Selamat Datang",
-        text: "Selamat datang di Portal Resmi Pemerintah Provinsi DKI Jakarta. Silakan pilih kategori layanan untuk mengakses informasi dan layanan yang tersedia.",
-        contact: { phone: "112", email: "dki@jakarta.go.id" },
-        popularServices: ["Jak Lingko", "PPDB Jakarta", "JakOne Mobile"],
+        title: "Selamat Datang di Portal Resmi Kota Bogor",
+        text: "Jelajahi berbagai layanan dan informasi penting seputar Pemerintah Kota Bogor. Temukan informasi terbaru, ajukan permohonan, atau laporkan masalah dengan mudah.",
+        contact: { phone: "0251-8312000", email: "info@bogorkota.go.id" },
+        popularServices: ["E-Government", "Pelayanan Publik", "Wisata Bogor"],
       };
 
       return (
@@ -135,7 +135,6 @@ const TabNavigation = ({ isMobileMenuOpen }) => {
     } else {
       const selectedItem = navigationData[activeLevel1].children[activeLevel2].children[activeLevel3];
 
-      // Tentukan label tombol berdasarkan tipe
       const getActionLabel = () => {
         switch (selectedItem.type) {
           case 'gmaps':
@@ -149,18 +148,17 @@ const TabNavigation = ({ isMobileMenuOpen }) => {
         }
       };
 
-      const shouldOpenNewTab = selectedItem.type === 'gmaps';
+      const shouldOpenNewTab = selectedItem.type === 'gmaps' || selectedItem.type === 'link' || selectedItem.type === 'form';
 
       return (
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-white/90">{selectedItem.label}</h3>
 
           <p className="text-white/80 text-sm leading-relaxed">
-            {selectedItem.label} merupakan bagian dari{' '}
-            <strong>{navigationData[activeLevel1].children[activeLevel2].label}</strong>.
             {selectedItem.description
-              ? ` ${selectedItem.description}`
-              : ' Layanan ini tersedia pada jam operasional 08.00 - 16.00 WIB.'}
+              ? `${selectedItem.description}`
+              : `Informasi lebih lanjut tentang ${selectedItem.label}.`
+            }
           </p>
 
           {selectedItem.url && (
@@ -176,7 +174,7 @@ const TabNavigation = ({ isMobileMenuOpen }) => {
 
           <p className="text-white/70 text-xs mt-4">
             {selectedItem.type === 'gmaps' && '📍 Lokasi dapat dilihat di Google Maps'}
-            {selectedItem.type === 'form' && '📝 Formulir resmi Pemprov DKI Jakarta'}
+            {selectedItem.type === 'form' && '📝 Formulir resmi Pemkot Bogor'}
             {selectedItem.type === 'link' && '🔗 Sumber resmi pemerintah'}
             {!selectedItem.url && 'ℹ️ Konten akan segera tersedia'}
           </p>
@@ -185,7 +183,6 @@ const TabNavigation = ({ isMobileMenuOpen }) => {
     }
   };
 
-  // Tutup menu level 1 otomatis di layar besar
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -199,7 +196,6 @@ const TabNavigation = ({ isMobileMenuOpen }) => {
   return (
     <nav className={`nav-container ${!isMobileMenuOpen && 'hidden'} lg:block`}>
       <div className="max-w-7xl mx-auto">
-        {/* Top Level Navigation */}
         <div className="top-level-nav">
           {Object.keys(navigationData).map((key) => (
             <button
@@ -217,10 +213,8 @@ const TabNavigation = ({ isMobileMenuOpen }) => {
           ))}
         </div>
 
-        {/* Navigation Columns */}
         {activeLevel1 && (
           <div className="nav-columns">
-            {/* Level 2 Column */}
             <div className="nav-column">
               <h3 className="text-lg font-semibold mb-4 text-white/90">
                 {navigationData[activeLevel1].label}
@@ -238,7 +232,6 @@ const TabNavigation = ({ isMobileMenuOpen }) => {
               </div>
             </div>
 
-            {/* Level 3 Column */}
             <div className="nav-column">
               {activeLevel2 && (
                 <>
@@ -250,7 +243,7 @@ const TabNavigation = ({ isMobileMenuOpen }) => {
                       <button
                         key={id}
                         className={`nav-button ${activeLevel3 === id ? 'active' : ''}`}
-                        onClick={() => handleLevel3Click(id)} // ✅ Hanya aktifkan, tidak redirect
+                        onClick={() => handleLevel3Click(id)}
                       >
                         {data.label}
                         {data.type === 'gmaps' && <span className="text-xs ml-1">📍</span>}
@@ -263,7 +256,6 @@ const TabNavigation = ({ isMobileMenuOpen }) => {
               )}
             </div>
 
-            {/* Info Column */}
             <div className="nav-column">
               {renderInfoColumn()}
             </div>

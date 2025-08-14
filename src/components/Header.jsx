@@ -6,12 +6,10 @@ const Header = ({ onMenuToggle, isMobileMenuOpen }) => (
     <div className="max-w-7xl mx-auto px-4 py-4">
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-4">
-          <div className="w-12 h-12 rounded-full bg-blue-900 flex items-center justify-center">
-            <span className="text-white font-bold text-lg">JKT</span>
-          </div>
+              <img src="public\logo\logo-1.png" alt="" className="w-12" />
           <div>
-            <h1 className="text-2xl font-bold text-blue-900">Jakarta</h1>
-            <p className="text-sm text-gray-600">Portal Resmi Provinsi DKI Jakarta</p>
+            <h1 className="text-2xl font-bold text-blue-900">Bogor</h1>
+            <p className="text-sm text-gray-600">Portal Resmi Kota Bogor </p>
           </div>
         </div>
         <button

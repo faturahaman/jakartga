@@ -1,12 +1,12 @@
 // src/components/ServicesSection.jsx
 const ServicesSection = () => {
   const services = [
-    { name: 'Layanan Darurat', color: 'blue', iconText: 'Darurat' },
-    { name: 'Layanan Pengunjung', color: 'green', iconText: 'Pengunjung' },
-    { name: 'Layanan Warga', color: 'yellow', iconText: 'Warga' },
-    { name: 'Perizinan', color: 'red', iconText: 'Perizinan' },
-    { name: 'Pajak', color: 'purple', iconText: 'Pajak' },
-    { name: 'Pendidikan', color: 'orange', iconText: 'Pendidikan' },
+    { name: 'Layanan Darurat', color: 'blue', iconPath: '/logo/public/layanan_darurat.png' },
+    { name: 'Layanan Pengunjung', color: 'green', iconPath: '/logo/public/layanan_pengunjung.png' },
+    { name: 'Layanan Warga', color: 'yellow', iconPath: '/logo/public/layanan_lain.png' },
+    { name: 'Perizinan', color: 'red', iconPath: '/logo/public/layanan_disabilitas.png' },
+    { name: 'Pajak', color: 'purple', iconPath: '/logo/public/layanan_pendidikan.png' },
+    { name: 'Pendidikan', color: 'orange', iconPath: '/logo/public/layanan_pendidikan.png' },
   ];
 
   return (
@@ -24,9 +24,9 @@ const ServicesSection = () => {
                 className={`w-16 h-16 bg-${service.color}-100 rounded-full flex items-center justify-center mb-2`}
               >
                 <img
-                  src={`https://via.placeholder.com/64x64?text=${service.iconText}`}
+                  src={service.iconPath}
                   alt={service.name}
-                  className="w-10 h-10"
+                  className="w-10 h-10 object-contain"
                 />
               </div>
               <p className="text-sm font-semibold text-gray-700">{service.name}</p>

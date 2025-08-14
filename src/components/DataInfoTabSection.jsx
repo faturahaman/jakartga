@@ -8,7 +8,7 @@ const DataInfoTabSection = () => {
     { id: 'app-mobile', label: 'Aplikasi Mobile' },
     { id: 'info-pangan', label: 'Info Pangan' },
     { id: 'laporan-kinerja', label: 'Laporan Kinerja' },
-    { id: 'jakarta-global', label: 'Jakarta Kota Global' },
+    { id: 'bogor-global', label: 'Bogor Kota Global' },
   ];
 
   const renderTabContent = () => {
@@ -18,16 +18,16 @@ const DataInfoTabSection = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Aplikasi Mobile</h3>
             <p className="text-sm text-gray-700 mb-6 leading-relaxed">
-              Unduh dan manfaatkan aplikasi resmi Pemprov DKI Jakarta untuk layanan dan informasi dalam genggaman.
+              Unduh dan manfaatkan aplikasi resmi Pemkot Bogor untuk layanan dan informasi dalam genggaman.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { title: 'JDIH', description: 'Jaringan Dokumentasi dan Informasi Hukum Provinsi DKI Jakarta' },
-                { title: 'JAKI', description: 'Super-app serba bisa untuk membantu keseharian Anda selama berada di Jakarta.' },
-                { title: 'Alpukat Betawi', description: 'Permudah urusan administrasi, tersedia kanal pelayanan bagi warga DKI Jakarta.' },
-                { title: 'Jak Lingko', description: 'Berkelana dengan transportasi publik di Jakarta kini semakin mudah.' },
-                { title: 'Jak Sehat', description: 'Kemudahan mencari informasi layanan dan fasilitas kesehatan dalam genggaman.' },
-                { title: 'PPID Jakarta', description: 'Ketahui lebih banyak tentang informasi dan dokumentasi Jakarta.' },
+                { title: 'Bogor Smart', description: 'Aplikasi super-app Kota Bogor untuk layanan publik dan informasi warga.' },
+                { title: 'Peta Bogor', description: 'Peta digital Kota Bogor lengkap dengan fasilitas publik dan wisata.' },
+                { title: 'Pelayanan Publik', description: 'Permudah urusan administrasi warga dengan kanal layanan digital.' },
+                { title: 'Info Transportasi', description: 'Pantau transportasi dan rute angkutan umum di Kota Bogor.' },
+                { title: 'Sehat Bogor', description: 'Cari informasi layanan dan fasilitas kesehatan dengan mudah.' },
+                { title: 'PPID Bogor', description: 'Informasi dan dokumentasi terkait Pemerintah Kota Bogor.' },
               ].map((app, index) => (
                 <div
                   key={index}
@@ -39,7 +39,7 @@ const DataInfoTabSection = () => {
                   </div>
                   <a
                     href="#"
-                    className="text-blue-600 text-xs lg:text-sm font-medium hover:text-blue-800 transition-colors"
+                    className="text-green-600 text-xs lg:text-sm font-medium hover:text-green-800 transition-colors"
                   >
                     Selengkapnya..
                   </a>
@@ -53,7 +53,7 @@ const DataInfoTabSection = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Info Pangan</h3>
             <p className="text-sm text-gray-700 mb-6 leading-relaxed">
-              Pantau harga bahan pokok dan ketersediaan pangan terkini di berbagai pasar di Jakarta.
+              Pantau harga bahan pokok dan ketersediaan pangan terkini di berbagai pasar di Kota Bogor.
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
               <p className="text-gray-600 text-center">Konten Info Pangan akan ditampilkan di sini</p>
@@ -65,22 +65,22 @@ const DataInfoTabSection = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Laporan Kinerja</h3>
             <p className="text-sm text-gray-700 mb-6 leading-relaxed">
-              Transparansi kinerja pemerintah dalam mencapai target pembangunan.
+              Transparansi kinerja pemerintah Kota Bogor dalam mencapai target pembangunan.
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
               <p className="text-gray-600 text-center">Konten Laporan Kinerja akan ditampilkan di sini</p>
             </div>
           </div>
         );
-      case 'jakarta-global':
+      case 'bogor-global':
         return (
           <div>
-            <h3 className="text-lg font-semibold mb-4">Jakarta Kota Global</h3>
+            <h3 className="text-lg font-semibold mb-4">Bogor Kota Global</h3>
             <p className="text-sm text-gray-700 mb-6 leading-relaxed">
-              Inisiatif dan proyek strategis untuk menjadikan Jakarta sebagai pusat ekonomi dan budaya global.
+              Inisiatif dan proyek strategis untuk menjadikan Bogor sebagai kota modern dan berdaya saing global.
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
-              <p className="text-gray-600 text-center">Konten Jakarta Kota Global akan ditampilkan di sini</p>
+              <p className="text-gray-600 text-center">Konten Bogor Kota Global akan ditampilkan di sini</p>
             </div>
           </div>
         );
@@ -94,7 +94,7 @@ const DataInfoTabSection = () => {
       <div className="max-w-6xl mx-auto">
         <h2 className="text-xl lg:text-2xl font-bold mb-2">Data dan Informasi</h2>
         <p className="text-gray-600 mb-6 lg:mb-8 text-sm lg:text-base">
-          Akses ragam data dan informasi resmi Jakarta yang transpran dan terkini.
+          Akses ragam data dan informasi resmi Kota Bogor yang transparan dan terkini.
         </p>
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
           <div className="bg-white w-full lg:w-64 rounded-lg shadow-md p-4 space-y-2 order-2 lg:order-1">
@@ -103,7 +103,7 @@ const DataInfoTabSection = () => {
                 key={tab.id}
                 className={`w-full text-left px-4 py-2 lg:py-3 rounded text-sm lg:text-base transition-colors ${
                   activeTab === tab.id
-                    ? 'bg-blue-100 text-blue-900 font-semibold'
+                    ? 'bg-green-100 text-green-900 font-semibold'
                     : 'hover:bg-gray-100'
                 }`}
                 onClick={() => setActiveTab(tab.id)}

@@ -3,21 +3,45 @@ import React, { useState } from 'react';
 import { eventDetails } from '../data/eventDetails';
 
 const EventsSection = () => {
-  const [selectedEvent, setSelectedEvent] = useState(eventDetails['event-srivijaya']);
-
   const eventList = [
-    { id: 'event-bigu', name: 'Bigu Festival 2025', date: '12 Jul - 13 Jul', iconText: 'Bigu' },
-    { id: 'event-srivijaya', name: 'Pameran Srivijaya', date: '11 Aug - 16 Nov', iconText: 'Srivijaya' },
-    { id: 'event-imazu', name: 'Kei Imazu: The Sea is Barely Wrinkled', date: '01 Jul - 05 Oct', iconText: 'Imazu' },
-    { id: 'event-doh', name: 'Doh Kyung Soo Asia Tour', date: '09 Aug - 09 Aug', iconText: 'D.O' },
+    { 
+      id: 'event-bogor-flower', 
+      name: 'Bogor Flower Festival 2025', 
+      date: '10 Jul - 15 Jul', 
+      iconText: 'Flower',
+      image: '/logo/public/ammar-andiko-R1DpwwnIoIU-unsplash.jpg' 
+    },
+    { 
+      id: 'event-bogor-food', 
+      name: 'Festival Kuliner Bogor', 
+      date: '20 Jul - 22 Jul', 
+      iconText: 'Food',
+      image: '/logo/public/bigu.jpg' 
+    },
+    { 
+      id: 'event-bogor-culture', 
+      name: 'Pameran Budaya Bogor', 
+      date: '01 Aug - 05 Aug', 
+      iconText: 'Culture',
+      image: '/logo/public/batik.jpg' 
+    },
+    { 
+      id: 'event-bogor-music', 
+      name: 'Bogor Music Fest', 
+      date: '15 Aug - 17 Aug', 
+      iconText: 'Music',
+      image: '/logo/public/doh_kyung.jpg' 
+    },
   ];
+
+  const [selectedEvent, setSelectedEvent] = useState(eventDetails['event-bogor-flower']);
 
   return (
     <section className="px-4 lg:px-6 py-8 lg:py-10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row p-6 gap-4">
         {/* Kolom Kalender & Daftar Acara */}
         <div className="bg-white text-black p-4 rounded-lg w-full md:w-1/3">
-          <h2 className="text-center font-bold text-lg mb-4">Agustus 2025</h2>
+          <h2 className="text-center font-bold text-lg mb-4">Juli 2025</h2>
 
           {/* Header Kalender */}
           <div className="grid grid-cols-7 text-center font-semibold text-sm mb-2">
@@ -28,16 +52,16 @@ const EventsSection = () => {
 
           {/* Tanggal Kalender */}
           <div className="grid grid-cols-7 text-center text-sm gap-y-1">
-            {[...Array(4)].map((_, i) => (
+            {[...Array(2)].map((_, i) => (
               <div key={`empty-${i}`}></div>
             ))}
             {[...Array(31)].map((_, i) => {
               const day = i + 1;
-              const isHighlighted = [2, 9, 11].includes(day); // tanggal acara
+              const isHighlighted = [10, 15, 20, 22].includes(day); // tanggal acara
               return (
                 <div
                   key={day}
-                  className={`${isHighlighted ? 'text-white bg-yellow-400 rounded-full' : ''}`}
+                  className={`${isHighlighted ? 'text-white bg-green-500 rounded-full' : ''}`}
                 >
                   {day}
                 </div>
@@ -54,13 +78,13 @@ const EventsSection = () => {
                 onClick={() => setSelectedEvent(eventDetails[event.id])}
               >
                 <img
-                  src={`https://via.placeholder.com/50x40?text=${event.iconText}`}
+                  src={event.image}
                   className="w-12 h-10 object-cover rounded"
                   alt={event.name}
                 />
                 <div>
                   <p className="font-semibold text-sm">{event.name}</p>
-                  <p className="text-yellow-500 text-xs font-bold">{event.date}</p>
+                  <p className="text-green-500 text-xs font-bold">{event.date}</p>
                 </div>
               </div>
             ))}

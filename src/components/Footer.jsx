@@ -3,9 +3,9 @@ const Footer = () => (
   <footer className="bg-blue-900 text-white py-8 lg:py-10 mt-8">
     <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
       <div>
-        <h4 className="font-bold text-lg mb-4">Tentang Jakarta</h4>
+        <h4 className="font-bold text-lg mb-4">Tentang Bogor</h4>
         <p className="text-sm leading-relaxed opacity-90">
-          Portal informasi resmi Jakarta untuk warga dan pengunjung kota.
+          Portal informasi resmi Kota Bogor untuk warga dan pengunjung kota.
         </p>
       </div>
       <div>
@@ -36,9 +36,9 @@ const Footer = () => (
       <div>
         <h4 className="font-bold text-lg mb-4">Kontak</h4>
         <p className="text-sm leading-relaxed opacity-90">
-          Jl. Medan Merdeka Selatan No. 8-9<br />
-          Jakarta Pusat<br />
-          Telp: (021) 382-2255
+          Jl. Raya Pajajaran No. 1<br />
+          Bogor Tengah<br />
+          Telp: (0251) 832-1234
         </p>
       </div>
       <div>
@@ -60,7 +60,7 @@ const Footer = () => (
       </div>
     </div>
     <div className="text-center mt-8 lg:mt-10 text-xs lg:text-sm text-gray-300 px-4">
-      &copy; 2025 Pemerintah Provinsi DKI Jakarta. All rights reserved.
+      &copy; 2025 Pemerintah Kota Bogor. All rights reserved.
     </div>
   </footer>
 );

@@ -11,6 +11,7 @@ import NewsSection from './components/NewsSection';
 import EventsSection from './components/EventsSection';
 import Footer from './components/Footer';
 import './App.css'; 
+import MapsSection from './components/mapsSection';
 
 export default function App() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -113,7 +114,7 @@ export default function App() {
         background: #e5e7eb;
         border-radius: 10px;
       }
-      .custom-scroll::-webkit-scrollbar-thumb {
+      .custom-scroll::-webkit-scr ollbar-thumb {
         background-color: #60a5fa;
         border-radius: 10px;
         border: 1px solid #e5e7eb;
@@ -165,8 +166,10 @@ export default function App() {
         <AnnouncementSection />
         <ServicesSection />
         <DataInfoTabSection />
-        <NewsSection />
         <EventsSection />
+        <NewsSection />
+        <MapsSection />
+
       </main>
       <Footer />
     </div>
